@@ -3,8 +3,8 @@ echo Setting up Amazon Linux 2023 for WSL...
 
 set "DISTRONAME=AL2023"
 
-echo Downloading container image...
-curl -o al2023-container.tar.xz https://cdn.amazonlinux.com/al2023/os-images/2023.6.20241010.0/container/al2023-container-2023.6.20241010.0-x86_64.tar.xz
+echo Downloading latest container image...
+powershell -Command "& {$url = 'https://cdn.amazonlinux.com/al2023/os-images/latest/container/'; $page = Invoke-WebRequest -Uri $url -UseBasicParsing; $file = ($page.Links | Where-Object {$_.href -like '*container*x86_64.tar.xz'} | Select-Object -First 1).href; Write-Host \"Downloading: $file\"; Invoke-WebRequest -Uri \"$url$file\" -OutFile 'al2023-container.tar.xz'}"
 if %ERRORLEVEL% neq 0 (
     echo Failed to download container image
     pause
