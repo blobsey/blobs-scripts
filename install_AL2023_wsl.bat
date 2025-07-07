@@ -20,7 +20,7 @@ if %ERRORLEVEL% neq 0 (
 )
 
 echo Installing required packages...
-wsl -d %DISTRONAME% bash -c "dnf -y -q install util-linux passwd sudo which git vim jq tar awscli findutils 'dnf-command(check-release-update)'" 2>NUL
+wsl -d %DISTRONAME% bash -c "dnf -y -q install util-linux passwd sudo which git vim jq tar awscli findutils xz-utils 'dnf-command(check-release-update)'" 2>NUL
 if %ERRORLEVEL% neq 0 (
     echo Failed to install packages
     pause
