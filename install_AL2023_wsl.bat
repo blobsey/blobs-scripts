@@ -20,7 +20,7 @@ if %ERRORLEVEL% neq 0 (
 )
 
 echo Installing required packages...
-wsl -d %DISTRONAME% bash -c "dnf -y -q install util-linux passwd sudo which git vim jq tar awscli findutils xz 'dnf-command(check-release-update)'" 2>NUL
+wsl -d %DISTRONAME% bash -c "dnf -y -q install util-linux passwd sudo which git vim jq tar awscli findutils xz procps-ng 'dnf-command(check-release-update)'" 2>NUL
 if %ERRORLEVEL% neq 0 (
     echo Failed to install packages
     pause
@@ -66,3 +66,4 @@ del al2023-container.tar.xz
 
 echo Setup complete! You can now start %DISTRONAME% with: wsl -d %DISTRONAME%
 pause
+
